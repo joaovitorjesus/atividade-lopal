@@ -2,7 +2,6 @@
 
 let numeros = [];
 let soma = 0;
-let acimaDaMedia = [];
 let quantidade = 8; // Definindo a quantidade fixa de números
 
 // Leitura dos números
@@ -21,20 +20,16 @@ for (let i = 0; i < quantidade; i++) {
 // Cálculo da média
 let media = soma / quantidade;
 
-// Identificação dos números acima da média
+// Exibição dos números acima da média
+let resultado = "Números acima da média: ";
+
 for (let i = 0; i < quantidade; i++) {
   if (numeros[i] > media) {
-    acimaDaMedia[acimaDaMedia.length] = numeros[i]; // Adicionando ao final do vetor sem usar push
+    if (resultado !== "Números acima da média: ") {
+      resultado += ", ";
+    }
+    resultado += numeros[i].toFixed(2);
   }
-}
-
-// Construção da string de números acima da média
-let resultado = "Números acima da média: ";
-for (let i = 0; i < acimaDaMedia.length; i++) {
-  if (i > 0) {
-    resultado += ", "; // Adiciona vírgula entre os números
-  }
-  resultado += acimaDaMedia[i].toFixed(2);
 }
 
 // Exibição dos resultados
