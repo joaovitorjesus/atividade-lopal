@@ -28,5 +28,14 @@ for (let i = 0; i < quantidade; i++) {
   }
 }
 
+// Construção da string de números acima da média
+let resultado = "Números acima da média: ";
+for (let i = 0; i < acimaDaMedia.length; i++) {
+  if (i > 0) {
+    resultado += ", "; // Adiciona vírgula entre os números
+  }
+  resultado += acimaDaMedia[i].toFixed(2);
+}
+
 // Exibição dos resultados
-alert(`A média dos números é: ${media.toFixed(2)}\nNúmeros acima da média: ${acimaDaMedia.join(", ")}`);
+alert(`A média dos números é: ${media.toFixed(2)}\n${resultado}`);

@@ -2,9 +2,10 @@
 
 let numeros = [];
 let soma = 0;
+let quantidade = 8; // Definindo a quantidade fixa de números
 
-// Leitura das notas
-for (let i = 0; i < 8; i++) {
+// Leitura dos números
+for (let i = 0; i < quantidade; i++) {
   let numero;
   do {
     numero = parseFloat(prompt(`Digite o número ${i + 1}:`));
@@ -12,19 +13,23 @@ for (let i = 0; i < 8; i++) {
       alert("Valor inválido! Digite um número real.");
     }
   } while (isNaN(numero));
-  numeros[i] = numero; // Armazenando diretamente no índice do vetor
+  numeros[i] = numero;
   soma += numero;
 }
 
 // Cálculo da média
-let media = soma / 8;
+let media = soma / quantidade;
 
 // Exibição dos números acima da média
-let acimaDaMedia = [];
-for (let i = 0; i < 8; i++) {
+let resultado = "Números acima da média: ";
+for (let i = 0; i < quantidade; i++) {
   if (numeros[i] > media) {
-    acimaDaMedia.push(numeros[i]);
+    if (resultado !== "Números acima da média: ") {
+      resultado += ", ";
+    }
+    resultado += numeros[i].toFixed(2);
   }
 }
 
-alert(`A média dos números é: ${media.toFixed(2)}\nNúmeros acima da média: ${acimaDaMedia.join(", ")}`);
+// Exibição dos resultados
+alert(`A média dos números é: ${media.toFixed(2)}\n${resultado}`);
